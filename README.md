@@ -6,3 +6,5 @@ This repository contains only the compiled browser game. Development source and 
 
 At Driftwood Cay, anchor and press **D** to man Fort Blackwater. Sink all eight ships with limited cannonballs. Tap or click the water to aim and fire; **A/D** traverse and **W/S** adjust range.
 
+New voyages start with 1,000 gold. Build the first timber wall for 700 gold and mount its first cannon for 250 gold; a shipyard is not required for the fort.
+
