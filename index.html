@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="theme-color" content="#e8d8ae">
 <title>Caywarden — Haven of the Free</title>
 <meta name="description" content="Sail a real-world 1700s nautical chart of the Atlantic: plunder merchants on true trade lanes, dock at Nassau, Port Royal and Tortuga, dig buried treasure, duel navies and retire rich in the Golden Age of Piracy.">
@@ -461,6 +461,51 @@ body {
 @media(prefers-reduced-motion:reduce){.island-dice-frame{scroll-behavior:auto}}
 
 
+
+/* Keep steering, commands and firing in separate thumb zones. */
+#helmBase,.game-touch-helm {
+  left:calc(16px + env(safe-area-inset-left, 0px));
+  bottom:calc(32px + env(safe-area-inset-bottom, 0px));
+  width:112px;height:112px;
+}
+.touch-actions,.game-touch-actions {
+  display:grid;grid-template-columns:repeat(6,48px);gap:12px;
+  left:50%;bottom:calc(184px + env(safe-area-inset-bottom, 0px));
+  transform:translateX(-50%);
+  pointer-events:none;
+}
+.touch-actions .tap-btn,.game-touch-actions button {
+  width:48px;height:48px;pointer-events:auto;
+  grid-column:auto;grid-row:auto;
+}
+.touch-actions [data-t],.game-touch-actions [data-t] {grid-column:auto;grid-row:auto}
+.touch-fire,.game-touch-fire {
+  right:calc(16px + env(safe-area-inset-right, 0px));
+  bottom:calc(32px + env(safe-area-inset-bottom, 0px));gap:12px;
+  pointer-events:none;
+}
+.touch-fire .fire-btn,.game-touch-fire button {
+  width:64px!important;height:64px!important;pointer-events:auto;
+}
+@media(max-width:419px) {
+  .touch-actions,.game-touch-actions {grid-template-columns:repeat(3,48px)}
+}
+/* Wide screens have room for commands between the two thumb zones. */
+@media(min-width:800px) {
+  .touch-actions,.game-touch-actions {bottom:calc(32px + env(safe-area-inset-bottom, 0px))}
+}
+@media(max-height:500px) and (min-width:560px) and (max-width:799px) {
+  .touch-actions,.game-touch-actions {grid-template-columns:repeat(3,48px);bottom:calc(32px + env(safe-area-inset-bottom, 0px))}
+}
+@media(max-width:359px) {
+  .touch-fire,.game-touch-fire {gap:8px}
+  .touch-fire .fire-btn,.game-touch-fire button {width:56px!important;height:56px!important}
+}
+
+
+@media(max-width:419px) {
+  #hudPrompt,.game-prompt {bottom:calc(304px + env(safe-area-inset-bottom, 0px))}
+}
 </style>
 <link rel="stylesheet" href="intro.css">
 </head>
